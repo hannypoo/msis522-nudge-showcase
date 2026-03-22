@@ -103,6 +103,7 @@ export const projectData: ProjectPageData = {
   links: [
     { label: 'Demo Recording', url: '/project-assets/nudge-demo.mp4', primary: true },
     { label: 'Slides PDF', url: '/project-assets/nudge-slides.pdf' },
+    { label: 'App Code (GitHub)', url: 'https://github.com/hannypoo/nudge-demo' },
   ],
 
   badges: [
