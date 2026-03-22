@@ -109,7 +109,7 @@ export const fosterAiHubPageData: TeamProjectTemplateData = {
   metrics: projectData.metrics,
   members: projectData.members,
   methods: projectData.methods,
-  toolBadges: projectData.badges,
+  toolBadges: projectData.badges.map((b) => b.label),
   gallery: projectData.gallery.map((item) => ({
     title: item.title,
     caption: item.caption,

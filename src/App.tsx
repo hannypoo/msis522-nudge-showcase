@@ -3,7 +3,6 @@ import {
   Brain,
   CheckCircle2,
   Code2,
-  FileText,
   ImageIcon,
   Layers3,
   Lightbulb,
@@ -53,22 +52,26 @@ export default function App() {
           <div className="hero-copy">
             <div className="template-pill">
               <Sparkles size={14} />
-              Plug-and-Play Project Page
+              MSIS 522 — Team Project Showcase
             </div>
             <h1>{projectData.title}</h1>
             <p className="owner-line">{projectData.ownerLine}</p>
             <p className="hero-subtitle">{projectData.subtitle}</p>
             <p className="hero-summary">{projectData.executiveSummary}</p>
 
-            <div className="badge-row">
-              {projectData.badges.map((badge) => (
-                <span key={badge} className="chip">
-                  {badge}
-                </span>
-              ))}
+            <div className="badge-section">
+              <p className="badge-label">Tools Used</p>
+              <div className="badge-row">
+                {projectData.badges.map((badge) => (
+                  <span key={badge.label} className="chip badge-chip" data-tooltip={badge.tooltip}>
+                    {badge.label}
+                  </span>
+                ))}
+              </div>
             </div>
 
-            <div className="link-row">
+            <p className="badge-label" style={{ marginTop: '1.75rem' }}>Resources</p>
+            <div className="link-row" style={{ marginTop: '0' }}>
               {projectData.links.map((link) => (
                 <a
                   key={`${link.label}-${link.url}`}
@@ -86,25 +89,7 @@ export default function App() {
         </section>
 
         <section className="surface instructions-surface">
-          <div className="instruction-heading">
-            <div className="icon-box cyan-box">
-              <FileText size={22} />
-            </div>
-            <div>
-              <p className="instruction-title">How students should use this page</p>
-              <p className="instruction-subtitle">Fill in the content, keep the overall layout and pacing.</p>
-            </div>
-          </div>
-
-          <div className="instruction-list">
-            {projectData.instructions.map((instruction) => (
-              <div key={instruction} className="instruction-card">
-                <CheckCircle2 size={20} />
-                <p>{instruction}</p>
-              </div>
-            ))}
-          </div>
-
+          <p className="badge-label" style={{ marginBottom: '1rem' }}>Key Metrics</p>
           <div className="metrics-grid">
             {projectData.metrics.map((metric) => (
               <div key={metric.label} className="metric-card">
@@ -168,8 +153,8 @@ export default function App() {
         <section>
           <SectionHeader
             eyebrow="Team"
-            title="Show who built it and what each person owned"
-            description="This section should read like a real team build, not just a list of names. Make ownership specific."
+            title="Meet the team"
+            description="Who contributed what to bring Nudge to life."
           />
           <div className="card-grid two-up">
             {projectData.members.map((member) => (
@@ -187,9 +172,9 @@ export default function App() {
 
         <section>
           <SectionHeader
-            eyebrow="Gallery"
-            title="Add screenshots, diagrams, evidence, and visual proof"
-            description="Students can place screenshots, diagrams, PDFs, or photos inside public/project-assets and reference them from the data file."
+            eyebrow="Demo & Screenshots"
+            title="See Nudge in action"
+            description="Three core scenarios showing how Nudge adapts your schedule in real time through conversation."
           />
           <div className="card-grid two-up">
             {projectData.gallery.map((item) =>
@@ -223,7 +208,7 @@ export default function App() {
               </div>
               <div>
                 <p className="eyebrow">Stack</p>
-                <h3>Make the stack easy to scan</h3>
+                <h3>What Nudge is built with</h3>
               </div>
             </div>
             <div className="stack-list">
@@ -253,7 +238,7 @@ export default function App() {
               </div>
               <div>
                 <p className="eyebrow">Methods</p>
-                <h3>Call out the techniques quickly</h3>
+                <h3>How we built it</h3>
               </div>
             </div>
             <div className="method-grid">
@@ -275,8 +260,8 @@ export default function App() {
         <section>
           <SectionHeader
             eyebrow="Product"
-            title="Break the experience into feature cards"
-            description="Each card should explain what the user does, what the system does, and what concrete value the interaction creates."
+            title="Core features"
+            description="The three ways Nudge adapts your schedule through conversation."
           />
           <div className="card-grid two-up">
             {projectData.features.map((feature) => (
@@ -307,7 +292,7 @@ export default function App() {
               </div>
               <div>
                 <p className="eyebrow">Architecture</p>
-                <h3>Explain how the system works</h3>
+                <h3>How Nudge processes a request</h3>
               </div>
             </div>
             <div className="architecture-list">
@@ -330,7 +315,7 @@ export default function App() {
               </div>
               <div>
                 <p className="eyebrow">Code Highlights</p>
-                <h3>Paste short code samples if they help</h3>
+                <h3>Under the hood</h3>
               </div>
             </div>
             <div className="code-list">
@@ -360,7 +345,7 @@ export default function App() {
               </div>
               <div>
                 <p className="eyebrow">Roadmap</p>
-                <h3>Show momentum and next steps</h3>
+                <h3>Where Nudge is headed</h3>
               </div>
             </div>
             <div className="roadmap-list">
@@ -387,7 +372,7 @@ export default function App() {
               </div>
               <div>
                 <p className="eyebrow">Risks</p>
-                <h3>Be honest about constraints</h3>
+                <h3>What we&apos;re watching</h3>
               </div>
             </div>
             <div className="risk-list">
@@ -403,11 +388,11 @@ export default function App() {
 
         <section className="closing-card">
           <div>
-            <p className="dark-eyebrow">Closing Section</p>
-            <h2>End with a clear business case</h2>
+            <p className="dark-eyebrow">The Big Picture</p>
+            <h2>Why Nudge matters</h2>
             <p>
-              The strongest project pages do not stop at “here is our interface.” They explain why the idea matters,
-              how the system is built, what evidence exists today, and what should happen next.
+              Scheduling tools were not built for brains that work differently. Nudge is a step toward
+              adaptive, conversational productivity, built around how neurodivergent people actually experience their day.
             </p>
           </div>
 
@@ -417,28 +402,28 @@ export default function App() {
                 <Users size={18} />
               </div>
               <h3>Who benefits?</h3>
-              <p>State the user, customer, or stakeholder group in plain language.</p>
+              <p>Neurodivergent individuals, especially those with ADHD, autism, and executive function differences, who struggle with rigid scheduling tools.</p>
             </div>
             <div className="closing-mini-card">
               <div className="icon-box dark-icon-box">
                 <Target size={18} />
               </div>
               <h3>What changes?</h3>
-              <p>Explain the operational, financial, or human outcome the project improves.</p>
+              <p>Instead of abandoning your plan when things go sideways, you tell Nudge what happened and your schedule adapts in seconds.</p>
             </div>
             <div className="closing-mini-card">
               <div className="icon-box dark-icon-box">
                 <Layers3 size={18} />
               </div>
-              <h3>Why this build?</h3>
-              <p>Call out the architecture or approach choices that make the solution credible.</p>
+              <h3>Why this approach?</h3>
+              <p>Large language models can understand natural language intent and map it to structured schedule actions, something rule-based systems cannot do.</p>
             </div>
             <div className="closing-mini-card">
               <div className="icon-box dark-icon-box">
                 <Rocket size={18} />
               </div>
-              <h3>What is next?</h3>
-              <p>Name the next test, launch step, or milestone that turns the prototype into a stronger product.</p>
+              <h3>What&apos;s next?</h3>
+              <p>User testing with neurodivergent communities, calendar integration, and learning from individual patterns to proactively suggest changes.</p>
             </div>
           </div>
         </section>

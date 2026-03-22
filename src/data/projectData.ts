@@ -23,6 +23,11 @@ export interface GalleryItem {
   placeholder?: string;
 }
 
+export interface Badge {
+  label: string;
+  tooltip: string;
+}
+
 export interface StackGroup {
   category: string;
   tools: string[];
@@ -65,7 +70,7 @@ export interface ProjectPageData {
   executiveSummary: string;
   instructions: string[];
   links: ProjectLink[];
-  badges: string[];
+  badges: Badge[];
   methods: string[];
   metrics: ProjectMetric[];
   problemStatement: string;
@@ -84,170 +89,228 @@ export interface ProjectPageData {
   risks: RiskItem[];
 }
 
-// Students: this is the main file you should edit.
-// Replace every bracketed placeholder with real content.
-// Put screenshots, PDFs, and diagrams in public/project-assets/.
-// In most cases, you do not need to edit App.tsx or styles.css.
-
 export const projectData: ProjectPageData = {
-  // This slug is useful later if the project is imported back into foster-ai-hub.
-  slug: '[project-slug]',
+  slug: 'nudge',
 
-  // Basic page identity
-  title: '[Project Title]',
-  subtitle: '[One sharp sentence that explains what your team is building and for whom.]',
-  ownerLine: '[Team Name or Student Names]',
+  title: 'Nudge',
+  subtitle: 'An AI-powered scheduling assistant that adapts to how your day actually unfolds.',
+  ownerLine: 'Hannah, Joanne, Osman, Casey — MSIS 522, Winter 2026',
   executiveSummary:
-    '[Write a crisp executive summary here. Explain the business context, the user, the core workflow, and why this project matters in one paragraph.]',
+    'Nudge is a conversational AI assistant that helps users manage their daily schedule through natural language. Instead of rigid calendar tools that assume your day goes as planned, Nudge lets you say things like "I need to stop by the store" or "my energy just tanked" and intelligently restructures your day — inserting, moving, or simplifying tasks in real time. Built with React, Supabase, and Claude AI, Nudge demonstrates how large language models can power adaptive, human-centered productivity tools.',
 
-  // Short instruction cards shown near the top of the page
-  instructions: [
-    'Replace every bracketed placeholder with project-specific content.',
-    'Drop screenshots, PDFs, diagrams, or photos into public/project-assets and reference them here.',
-    'Add or remove cards by editing arrays in this file instead of rewriting the page layout.',
-    'Keep the executive summary concise, but make the stack, methods, feature cards, and architecture specific and concrete.',
-  ],
+  instructions: [],
 
-  // Main action buttons / links
   links: [
-    { label: 'Live Tool', url: 'https://example.com', primary: true },
-    { label: 'Demo Recording', url: 'https://example.com/demo' },
-    { label: 'GitHub Repo', url: 'https://github.com/your-team/your-project' },
-    { label: 'Slides PDF', url: '/project-assets/final-slides.pdf' },
-    { label: 'Technical Report', url: '/project-assets/report.pdf' },
+    { label: 'Demo Recording', url: '/project-assets/nudge-demo.mp4', primary: true },
+    { label: 'Slides PDF', url: '/project-assets/nudge-slides.pdf' },
   ],
 
-  // Quick tags shown under the summary
-  badges: ['[React]', '[TypeScript]', '[Supabase]', '[OpenAI API]', '[Figma]', '[n8n / LangGraph / MCP]'],
+  badges: [
+    { label: 'React', tooltip: 'Component-based UI with 29 custom components and React Query for state management' },
+    { label: 'TypeScript', tooltip: 'End-to-end type safety across frontend, hooks, and Supabase edge functions' },
+    { label: 'Tailwind CSS', tooltip: 'Utility-first styling with a dark-mode, mobile-first design system' },
+    { label: 'Supabase', tooltip: 'PostgreSQL database, auth, row-level security, and serverless edge functions' },
+    { label: 'Claude API', tooltip: 'Powers conversational rescheduling — understands intent and returns structured schedule actions' },
+    { label: 'Web Speech API', tooltip: 'Voice input via browser speech recognition and text-to-speech for hands-free interaction' },
+    { label: 'Vite', tooltip: 'Fast dev server with hot module replacement and optimized production builds' },
+    { label: 'PWA', tooltip: 'Progressive Web App with offline support and installable on mobile devices' },
+  ],
 
-  // Short keywords that help when this project is added to a larger gallery later.
-  keywords: ['[keyword-1]', '[keyword-2]', '[keyword-3]'],
+  keywords: ['scheduling', 'neurodivergent', 'ADHD', 'conversational AI', 'productivity', 'adaptive'],
 
-  // Methods shown in the solution section and methods section
-  methods: ['[Prompt chaining]', '[RAG]', '[Human-in-the-loop review]', '[Rapid prototyping]'],
+  methods: ['Prompt engineering', 'Conversational UI', 'Energy-aware adaptation', 'Context-driven rescheduling'],
 
-  // Small summary cards near the top
   metrics: [
-    { label: 'Team', value: '[3-5 students]', note: 'List names and roles below' },
-    { label: 'Core User', value: '[User Segment]', note: 'Who the experience is designed for' },
+    { label: 'Demo Scenarios', value: '3', note: 'Grocery, energy crash, time crunch' },
+    { label: 'AI Response Time', value: '<2 seconds', note: 'Claude API via Supabase Edge Functions' },
+    { label: 'Schedule Actions', value: '5 types', note: 'Insert, move, delete, swap, compress' },
   ],
 
-  // Problem / solution
   problemStatement:
-    '[Describe the pain point in concrete terms. Who experiences it, how often, what it costs them, and why current solutions fall short.]',
-  solutionSummary:
-    '[Describe the product or system your team is building. Explain the main interaction, the AI or automation role, and the value users get from it.]',
-  audience: '[Primary users, buyers, or stakeholders]',
-  impactGoal: '[What outcome will improve if this succeeds? Revenue, speed, trust, accuracy, retention, access, etc.]',
-  status: '[Prototype / Pilot / Live Tool / Research Concept]',
+    'Traditional scheduling tools assume your day will go exactly as planned. For neurodivergent individuals — including those with ADHD, autism, and other executive function differences — it rarely does. An unexpected errand, an energy crash, or a sudden time crunch can derail a rigid calendar, leaving users frustrated and disengaged. Existing tools offer no way to say "everything just changed" and get an intelligent response.',
 
-  // Team members
+  solutionSummary:
+    'Nudge is a chat-based scheduling assistant powered by Claude AI. Users describe what changed in plain language — "I need to stop by the grocery store," "my energy just tanked," or "I have class tonight and I\'m running late" — and Nudge restructures their schedule intelligently. It inserts new blocks, swaps hard tasks for easier ones, compresses timelines, and builds prep sequences, all through a conversational interface with voice support.',
+
+  audience: 'Neurodivergent individuals, including those with ADHD, autism, and other executive function differences',
+  impactGoal: 'Reduce schedule abandonment by making daily plans adaptive instead of rigid',
+  status: 'Prototype',
+
   members: [
-    { name: '[Student Name]', role: '[Role or Function]', focus: '[What this person owned]' },
-    { name: '[Student Name]', role: '[Role or Function]', focus: '[What this person owned]' },
-    { name: '[Student Name]', role: '[Role or Function]', focus: '[What this person owned]' },
+    { name: 'Hannah', role: 'Lead Developer', focus: 'Architecture, AI integration, and demo implementation' },
+    { name: 'Joanne', role: 'Editor & Reviewer', focus: 'Documentation review, final QA, submission' },
+    { name: 'Osman', role: 'Product Strategy', focus: 'Ideation, presentation, and future AI capabilities (pattern recognition)' },
+    { name: 'Casey', role: 'Team Member', focus: 'Project ideation and planning' },
   ],
 
-  // Gallery cards
-  // To use a real image, put the file in public/project-assets/ and set assetPath.
   gallery: [
     {
-      title: 'Hero Screenshot',
-      caption: '[Show the main interface or most impressive moment of the product.]',
-      assetPath: '/project-assets/example-screen.png',
+      title: 'Today View — Full Schedule',
+      caption: 'The main interface showing a full day of time blocks with status indicators, difficulty badges, and the chat bubble in the corner.',
+      assetPath: '/project-assets/today-view.png',
     },
     {
-      title: 'Workflow or Architecture',
-      caption: '[Show how the system works behind the scenes.]',
-      placeholder: 'Add a system diagram, workflow slide, or whiteboard export',
+      title: 'Conversational Rescheduling',
+      caption: 'Nudge responds to "I need to go grocery shopping" by asking clarifying questions, then inserting drive time, shopping, and return blocks while shifting the rest of the day.',
+      assetPath: '/project-assets/grocery-chat.png',
     },
     {
-      title: 'Evidence of Validation',
-      caption: '[Include user testing photos, before/after comparisons, sample outputs, or evaluation charts.]',
-      placeholder: 'Add proof that the idea works or is promising',
+      title: 'Energy Crash Adaptation',
+      caption: 'When a user says their energy tanked, Nudge swaps hard tasks for easier alternatives, shortens blocks, and inserts recovery breaks — compacting the entire schedule.',
+      assetPath: '/project-assets/energy-crash.png',
+    },
+    {
+      title: 'Time Crunch Mode',
+      caption: 'When you are running late for a commitment, Nudge clears non-essential plans, builds a streamlined prep sequence, and locks in your departure time.',
+      assetPath: '/project-assets/time-crunch.png',
     },
   ],
 
-  // Technical stack
   stack: [
     {
       category: 'Frontend and Experience',
-      tools: ['[React]', '[Next.js / Vite]', '[Tailwind CSS or CSS]', '[Figma]'],
-      note: '[How you designed and shipped the interface.]',
+      tools: ['React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      note: 'Mobile-first PWA with voice input via the Web Speech API. Animations and transitions give the schedule a responsive, living feel.',
     },
     {
       category: 'AI, Logic, and Orchestration',
-      tools: ['[OpenAI API]', '[LangGraph / n8n / custom workflow]', '[Prompt patterns]', '[Evaluation setup]'],
-      note: '[How intelligence, prompting, and agentic behavior work.]',
+      tools: ['Claude API (Anthropic)', 'Supabase Edge Functions (Deno)', 'Custom prompt engineering'],
+      note: 'All AI calls route through Supabase Edge Functions so the API key never reaches the client. Claude receives the full schedule context and returns structured JSON with actions and a conversational response.',
     },
     {
       category: 'Data, Backend, and Integrations',
-      tools: ['[Supabase / Firebase / Postgres]', '[APIs]', '[Auth]', '[Storage]'],
-      note: '[Where data lives and what external systems connect.]',
+      tools: ['Supabase (PostgreSQL)', 'Supabase Auth', 'Supabase Realtime', 'React Query'],
+      note: 'Schedule blocks, chat history, user profiles, and task data all live in Supabase. React Query handles client-side caching and optimistic updates.',
     },
   ],
 
-  // Feature cards
   features: [
     {
-      title: '[Feature or Flow Name]',
-      description: '[Explain what this part of the experience does and why it matters.]',
-      highlights: ['[Key interaction]', '[AI behavior]', '[What makes it different]'],
+      title: 'Conversational Rescheduling',
+      description: 'Tell Nudge what changed in plain English and it restructures your schedule. Supports text and voice input through the Web Speech API.',
+      highlights: [
+        'Natural language understanding via Claude AI',
+        'Inserts, moves, and removes blocks automatically',
+        'Asks clarifying questions when needed (e.g., "quick trip or big haul?")',
+      ],
     },
     {
-      title: '[Feature or Flow Name]',
-      description: '[Explain another important piece of the product.]',
-      highlights: ['[Key interaction]', '[Automation or insight]', '[User value]'],
+      title: 'Energy-Aware Adaptation',
+      description: 'When your energy crashes, Nudge doesn\'t just tell you to push through. It swaps hard tasks for easier ones, shortens block durations, and adds recovery breaks.',
+      highlights: [
+        'Detects energy-related language ("exhausted," "wiped," "burned out")',
+        'Swaps hard tasks for lighter alternatives',
+        'Compresses remaining schedule to stay realistic',
+      ],
     },
     {
-      title: '[Feature or Flow Name]',
-      description: '[Explain a third area such as admin tools, analytics, onboarding, or evaluation.]',
-      highlights: ['[What happens]', '[How it is implemented]', '[Why it matters]'],
+      title: 'Smart Time-Crunch Mode',
+      description: 'Running late with somewhere to be? Nudge clears non-essential plans, builds a streamlined prep sequence, and locks in your departure time.',
+      highlights: [
+        'Calculates backward from your commitment time',
+        'Builds prep blocks (shower, get ready, snack, review)',
+        'Preserves fixed commitments while clearing flexible ones',
+      ],
     },
   ],
 
-  // Architecture walkthrough
   architecture: [
-    { title: 'Input Layer', description: '[What data, files, prompts, or actions enter the system?]' },
-    { title: 'Reasoning Layer', description: '[How does the AI retrieve context, classify, rank, or generate output?]' },
-    { title: 'Decision Layer', description: '[What rules, guardrails, approvals, or workflow logic shape behavior?]' },
-    { title: 'Output Layer', description: '[What does the user receive: a plan, interface state, report, alert, or recommendation?]' },
+    {
+      title: 'Input Layer',
+      description: 'User sends a message via text or voice through the chat interface. The Web Speech API converts speech to text. The message is sent along with the full current schedule as context.',
+    },
+    {
+      title: 'Reasoning Layer',
+      description: 'A Supabase Edge Function passes the message and schedule context to Claude API. Claude identifies the user\'s intent (new errand, energy change, time pressure) and determines which blocks need to change.',
+    },
+    {
+      title: 'Decision Layer',
+      description: 'Claude returns structured JSON containing a conversational response, a list of schedule actions (insert, move, delete, swap, compress), and suggestion chips for follow-up. Demo scenarios use pre-validated responses for reliability; unexpected inputs fall through to live Claude.',
+    },
+    {
+      title: 'Output Layer',
+      description: 'The client executes the actions against Supabase (real database mutations), the schedule re-renders with animated transitions, and Nudge\'s reply appears in the chat with optional text-to-speech readback.',
+    },
   ],
 
-  // Optional code snippet area
-  // Keep this short. One or two examples is usually enough.
   codeHighlights: [
     {
-      title: 'Example code snippet',
+      title: 'Chat → Action Pipeline',
       language: 'ts',
-      note: 'Paste one or two small code snippets here if they help explain the build.',
-      code: `export async function runWorkflow(input: string) {
-  const result = await orchestrator.plan(input);
-  return result;
+      note: 'When a user sends a message, the system checks for demo scenario matches first, then falls through to live Claude AI for unexpected inputs.',
+      code: `// Simplified chat flow
+const response = matchDemoScenario(userMessage);
+if (response) {
+  // Pre-validated scenario — execute known actions
+  await executeDemoActions(response.actionType, scheduleBlocks);
+  return response.message;
+} else {
+  // Live AI — send full context to Claude
+  const aiResponse = await supabase.functions.invoke('chat', {
+    body: { message: userMessage, schedule: todayBlocks }
+  });
+  await executeActions(aiResponse.actions);
+  return aiResponse.message;
 }`,
+    },
+    {
+      title: 'Energy Crash — Schedule Compaction',
+      language: 'ts',
+      note: 'When energy drops, hard tasks are swapped for easier alternatives and block durations are compressed.',
+      code: `// Energy crash adaptation (simplified)
+for (const block of mutableBlocks) {
+  if (block.difficulty === 'hard') {
+    block.title = easierAlternative(block);
+    block.difficulty = 'easy';
+  }
+  if (!block.is_fixed && !block.is_protected) {
+    block.duration = Math.round(block.duration * 0.6);
+  }
+}
+// Insert recovery break
+insertBlock({ title: 'Energy Break', duration: 15 });`,
     },
   ],
 
-  // Roadmap
   roadmap: [
     {
       phase: 'Now',
-      items: ['[What the prototype does today]', '[What evidence or assets you already have]', '[Any current limitations to be aware of]'],
+      items: [
+        'Three core scenarios working: grocery insertion, energy crash adaptation, time-crunch prep',
+        'Voice and text input with conversational responses',
+        'Full-day schedule with real database mutations',
+      ],
     },
     {
       phase: 'Next',
-      items: ['[Most important improvement]', '[What you would validate with more time]', '[A feature that meaningfully increases value]'],
+      items: [
+        'Broader natural language understanding for more scenario types',
+        'Calendar integration (Google Calendar, university systems)',
+        'User testing with neurodivergent communities to validate usefulness',
+      ],
     },
     {
       phase: 'Later',
-      items: ['[Scale-up opportunity]', '[Partnership, data, or business model opportunity]', '[Longer-term product vision]'],
+      items: [
+        'Learning from user patterns to proactively suggest schedule changes',
+        'Push notifications and mobile-native experience',
+        'Broader accessibility — supporting the full spectrum of neurodivergent needs',
+      ],
     },
   ],
 
-  // Risks and constraints
   risks: [
-    { title: '[Risk or Constraint]', mitigation: '[How your team manages or reduces this risk.]' },
-    { title: '[Risk or Constraint]', mitigation: '[How your team manages or reduces this risk.]' },
-    { title: '[Risk or Constraint]', mitigation: '[How your team manages or reduces this risk.]' },
+    {
+      title: 'AI Reliability',
+      mitigation: 'Demo scenarios use pre-validated responses for predictable behavior. Live AI inputs include full schedule context and structured output formatting to minimize hallucination. Edge cases fall back gracefully to a helpful "I\'m not sure how to help with that" response.',
+    },
+    {
+      title: 'User Privacy',
+      mitigation: 'Schedule data is personal and sensitive. All data is stored per-user in Supabase with row-level security. AI API keys are server-side only (edge functions), never exposed to the client.',
+    },
+    {
+      title: 'Trust and Adoption',
+      mitigation: 'Users may hesitate to let AI rearrange their day. Nudge always explains what it\'s changing and why. The conversational interface makes actions feel collaborative, not automated — users see what\'s happening and can course-correct.',
+    },
   ],
 };
