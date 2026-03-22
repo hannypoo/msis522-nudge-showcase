@@ -96,7 +96,7 @@ export const projectData: ProjectPageData = {
   subtitle: 'An AI-powered scheduling assistant that adapts to how your day actually unfolds.',
   ownerLine: 'Hannah, Joanne, Osman, Casey — MSIS 522, Winter 2026',
   executiveSummary:
-    'Nudge is a conversational AI assistant that helps users manage their daily schedule through natural language. Instead of rigid calendar tools that assume your day goes as planned, Nudge lets you say things like "I need to stop by the store" or "my energy just tanked" and intelligently restructures your day — inserting, moving, or simplifying tasks in real time. Built with React, Supabase, and Claude AI, Nudge demonstrates how large language models can power adaptive, human-centered productivity tools.',
+    'Nudge is a conversational AI assistant that helps users manage their daily schedule through natural language. Instead of rigid calendar tools that assume your day goes as planned, Nudge lets you say things like "I need to stop by the store" or "my energy just tanked" and intelligently restructures your day — inserting, moving, or simplifying tasks in real time. Built with React, Supabase, and Claude AI, Nudge demonstrates how large language models can power adaptive, human-centered productivity tools. Nudge is the AI chatbot feature of Offload, a larger adaptive scheduling platform currently in development for neurodivergent users. The full app is not yet publicly deployed — the GitHub repository provided contains the demo code showcasing the AI integration and conversational rescheduling capabilities.',
 
   instructions: [],
 
