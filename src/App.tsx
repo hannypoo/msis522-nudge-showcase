@@ -184,6 +184,7 @@ export default function App() {
                 const video = e.currentTarget.querySelector('video');
                 const overlay = e.currentTarget.querySelector('.play-overlay') as HTMLElement;
                 if (video && overlay) {
+                  video.style.filter = 'none';
                   video.play();
                   overlay.style.display = 'none';
                   video.controls = true;
