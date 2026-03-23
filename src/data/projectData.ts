@@ -145,12 +145,7 @@ export const projectData: ProjectPageData = {
   ],
 
   gallery: [
-    {
-      title: 'Today View — Full Schedule',
-      caption: 'The main interface showing a full day of time blocks with status indicators, difficulty badges, and the chat bubble in the corner.',
-      assetPath: '/project-assets/today-view.png',
-    },
-    {
+{
       title: 'Conversational Rescheduling',
       caption: 'Nudge responds to "I need to go grocery shopping" by asking clarifying questions, then inserting drive time, shopping, and return blocks while shifting the rest of the day.',
       assetPath: '/project-assets/grocery-chat.png',
