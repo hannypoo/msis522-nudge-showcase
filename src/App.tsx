@@ -176,14 +176,19 @@ export default function App() {
             title="See Nudge in action"
             description="Three core scenarios showing how Nudge adapts your schedule in real time through conversation."
           />
-          <div className="demo-video-wrap surface" style={{ borderRadius: '24px', overflow: 'hidden', marginBottom: '2rem' }}>
-            <video
-              controls
-              poster="/project-assets/grocery-chat.png"
-              style={{ width: '100%', display: 'block', background: '#0f172a' }}
-            >
-              <source src="/project-assets/nudge-demo.mp4" type="video/mp4" />
-            </video>
+          <div className="surface" style={{ borderRadius: '24px', overflow: 'hidden', marginBottom: '2rem' }}>
+            <div style={{ position: 'relative', background: '#0a0f1a' }}>
+              <video
+                controls
+                style={{ width: '100%', display: 'block', background: '#0a0f1a' }}
+              >
+                <source src="/project-assets/nudge-demo.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div style={{ padding: '1.25rem' }}>
+              <h3 style={{ margin: '0 0 0.4rem', fontSize: '1.1rem' }}>Demo Walkthrough</h3>
+              <p style={{ margin: 0, fontSize: '0.9rem', opacity: 0.65 }}>Watch Nudge handle real-time schedule changes — the scenarios shown in the screenshots below are walked through step by step.</p>
+            </div>
           </div>
 
           <div className="card-grid two-up">
