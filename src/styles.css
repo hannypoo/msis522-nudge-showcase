@@ -227,24 +227,15 @@ select {
   z-index: 10;
 }
 
-/* Keep tooltips on-screen for badges near edges */
-.badge-chip:first-child[data-tooltip]::after,
-.badge-chip:nth-child(2)[data-tooltip]::after {
+/* Keep all tooltips on-screen */
+.badge-row {
+  position: relative;
+}
+.badge-chip[data-tooltip]::after {
   left: 0;
   transform: translateX(0) scale(0.95);
 }
-.badge-chip:first-child[data-tooltip]:hover::after,
-.badge-chip:nth-child(2)[data-tooltip]:hover::after {
-  transform: translateX(0) scale(1);
-}
-.badge-chip:last-child[data-tooltip]::after,
-.badge-chip:nth-last-child(2)[data-tooltip]::after {
-  left: auto;
-  right: 0;
-  transform: translateX(0) scale(0.95);
-}
-.badge-chip:last-child[data-tooltip]:hover::after,
-.badge-chip:nth-last-child(2)[data-tooltip]:hover::after {
+.badge-chip[data-tooltip]:hover::after {
   transform: translateX(0) scale(1);
 }
 
