@@ -176,6 +176,16 @@ export default function App() {
             title="See Nudge in action"
             description="Three core scenarios showing how Nudge adapts your schedule in real time through conversation."
           />
+          <div className="demo-video-wrap surface" style={{ borderRadius: '24px', overflow: 'hidden', marginBottom: '2rem' }}>
+            <video
+              controls
+              poster="/project-assets/grocery-chat.png"
+              style={{ width: '100%', display: 'block', background: '#0f172a' }}
+            >
+              <source src="/project-assets/nudge-demo.mp4" type="video/mp4" />
+            </video>
+          </div>
+
           <div className="card-grid two-up">
             {projectData.gallery.map((item) =>
               item.assetPath ? (
