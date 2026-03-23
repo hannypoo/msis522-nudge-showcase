@@ -177,13 +177,48 @@ export default function App() {
             description="Three core scenarios showing how Nudge adapts your schedule in real time through conversation."
           />
           <div className="surface" style={{ borderRadius: '24px', overflow: 'hidden', marginBottom: '2rem' }}>
-            <div style={{ position: 'relative', background: '#0a0f1a' }}>
+            <div
+              className="demo-video-container"
+              style={{ position: 'relative', background: '#0a0f1a', cursor: 'pointer' }}
+              onClick={(e) => {
+                const video = e.currentTarget.querySelector('video');
+                const overlay = e.currentTarget.querySelector('.play-overlay') as HTMLElement;
+                if (video && overlay) {
+                  video.play();
+                  overlay.style.display = 'none';
+                  video.controls = true;
+                }
+              }}
+            >
               <video
-                controls
-                style={{ width: '100%', display: 'block', background: '#0a0f1a' }}
+                poster="/project-assets/grocery-chat.png"
+                style={{ width: '100%', display: 'block', background: '#0a0f1a', filter: 'brightness(0.4)' }}
               >
                 <source src="/project-assets/nudge-demo.mp4" type="video/mp4" />
               </video>
+              <div className="play-overlay" style={{
+                position: 'absolute', inset: 0,
+                display: 'flex', flexDirection: 'column',
+                alignItems: 'center', justifyContent: 'center',
+                gap: '0.75rem',
+              }}>
+                <div style={{
+                  width: '80px', height: '80px',
+                  borderRadius: '50%', background: 'rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(8px)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  border: '2px solid rgba(255,255,255,0.3)',
+                }}>
+                  <div style={{
+                    width: 0, height: 0,
+                    borderTop: '18px solid transparent',
+                    borderBottom: '18px solid transparent',
+                    borderLeft: '30px solid white',
+                    marginLeft: '4px',
+                  }} />
+                </div>
+                <span style={{ color: 'white', fontSize: '1rem', fontWeight: 500, opacity: 0.8 }}>Watch Demo</span>
+              </div>
             </div>
             <div style={{ padding: '1.25rem' }}>
               <h3 style={{ margin: '0 0 0.4rem', fontSize: '1.1rem' }}>Demo Walkthrough</h3>
